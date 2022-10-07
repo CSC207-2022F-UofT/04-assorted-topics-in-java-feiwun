@@ -30,8 +30,9 @@ class DrivableMap {
     public boolean addDrivable(String id, Drivable object){
         if (!drivable_map.containsKey(id)){
             drivable_map.put(id, object);
+            return true;
         }
-        return true;
+        return false;
     }
 
     /* TODO: Write a method named hasFasterThan that takes an int (a speed)
