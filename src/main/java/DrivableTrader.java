@@ -20,11 +20,13 @@ public class DrivableTrader extends Trader {
     }
 
     public int getSellingPrice(Drivable item) {
-        if (item instanceof Tradable) {
-            int objPrice = ((Tradable) item).getPrice();
-            return objPrice + item.getMaxSpeed();
+        int super_price = super.getSellingPrice(item);
+
+        if (super_price == Tradable.MISSING_PRICE) {
+            return super_price;
         }
-        return item.getMaxSpeed();
+
+        return super_price + item.getMaxSpeed();
     }
 
 }
